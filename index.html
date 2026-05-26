@@ -289,32 +289,102 @@
   <div class="page-wrap">
     <section class="card">
       <div class="hero">
-        <div class="pill">♡ Bacich & Kent Community</div>
+        <div class="pill">♡ Bacich & Kent Community ♡</div>
         <h1>KSD All Staff End-of-Year Gift</h1>
         <p class="subtitle">A voluntary community collection to thank the teachers and staff who support our students all year.</p>
       </div>
 
-      <div class="progress-grid">
-        <div class="stat-box">
-          <div class="stat-icon">$</div>
-          <p class="stat-label">Total Collected</p>
-          <p class="stat-number">$____</p>
-        </div>
+<div class="payment-box">
 
-        <div class="stat-box">
-          <div class="stat-icon">👥</div>
-          <p class="stat-label">Number of Contributors</p>
-          <p class="stat-number">____</p>
-        </div>
+<div class="payment-label">
+Total Collected
+</div>
 
-        <div class="stat-box">
-          <div class="stat-icon">📅</div>
-          <p class="stat-label">Collection Deadline</p>
-          <p class="stat-number deadline-number">Friday, June 5</p>
-        </div>
-      </div>
+<div class="payment-main" id="totalCollected">
+Loading...
+</div>
 
-      <div class="last-updated">Last updated: __________</div>
+</div>
+
+
+<div class="payment-box">
+
+<div class="payment-label">
+Contributors
+</div>
+
+<div class="payment-main" id="contributors">
+Loading...
+</div>
+
+</div>
+
+
+<div class="payment-box">
+
+<div class="payment-label">
+Last Updated
+</div>
+
+<div class="payment-sub" id="lastUpdated">
+Loading...
+</div>
+
+</div>
+
+
+
+<script>
+
+const sheetURL =
+"https://docs.google.com/spreadsheets/d/e/PASTE_PUBLISHED_LINK/pub?output=csv";
+
+
+fetch(sheetURL)
+.then(response => response.text())
+.then(csv => {
+
+const rows =
+csv.trim()
+.split("\n")
+.map(r => r.split(","));
+
+const data =
+Object.fromEntries(
+rows.slice(1).map(
+r => [r[0], r[1]]
+));
+
+document.getElementById(
+"totalCollected"
+).innerHTML =
+"$" +
+Number(
+data["Total Collected"]
+).toLocaleString();
+
+document.getElementById(
+"contributors"
+).innerHTML =
+data["Number of Contributors"];
+
+document.getElementById(
+"lastUpdated"
+).innerHTML =
+data["Last Updated"];
+
+})
+
+.catch(error => {
+
+document.getElementById(
+"totalCollected"
+).innerHTML =
+"Unavailable";
+
+});
+
+</script>
     </section>
 
     <div class="content-grid">
