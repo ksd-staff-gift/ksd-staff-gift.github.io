@@ -1,2 +1,388 @@
-# ksd-staff-gift.github.io
-<html></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fafaf9;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+
+    .page-wrap {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 28px 16px 36px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e7e5e4;
+      border-radius: 24px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+      overflow: hidden;
+    }
+
+    .hero {
+      background: #1e293b;
+      color: #ffffff;
+      text-align: center;
+      padding: 48px 28px;
+    }
+
+    .pill {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: #f1f5f9;
+    }
+
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 28px;
+      background: #ffffff;
+    }
+
+    .stat-box {
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: 18px;
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .stat-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      margin: 0 0 6px;
+      font-size: 12px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .stat-number {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.1;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .deadline-number {
+      font-size: clamp(23px, 3vw, 30px);
+    }
+
+    .last-updated {
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+      padding: 0 20px 28px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .content-card {
+      background: #ffffff;
+      border: 1px solid #e7e5e4;
+      border-radius: 24px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+      padding: 28px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      line-height: 1.15;
+      color: #0f172a;
+    }
+
+    h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      color: #0f172a;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .distribution-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 20px;
+      margin: 22px 0;
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 18px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .check {
+      color: #475569;
+      font-weight: bold;
+    }
+
+    .note {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #475569;
+      border-radius: 18px;
+      padding: 16px;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .payment-option {
+      border: 1px solid #e7e5e4;
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .payment-label {
+      margin: 0 0 4px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .payment-main {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      overflow-wrap: anywhere;
+    }
+
+    .payment-sub {
+      margin: 4px 0 0;
+      color: #64748b;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .gift-note {
+      margin-top: 18px;
+      background: #1e293b;
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .gift-note strong {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 17px;
+    }
+
+    .timeline {
+      margin-top: 24px;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .timeline-box {
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .timeline-main {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 28px;
+      color: #475569;
+      padding: 0 12px;
+    }
+
+    .footer p:first-child {
+      font-size: 18px;
+      font-weight: 600;
+      max-width: 850px;
+      margin: 0 auto 12px;
+    }
+
+    .signature {
+      font-weight: 700;
+      color: #334155;
+    }
+
+    @media (max-width: 800px) {
+      .progress-grid,
+      .content-grid,
+      .timeline-grid,
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 38px 20px;
+      }
+
+      .progress-grid,
+      .content-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <section class="card">
+      <div class="hero">
+        <div class="pill">♡ Bacich & Kent Community</div>
+        <h1>KSD All Staff End-of-Year Gift</h1>
+        <p class="subtitle">A voluntary community collection to thank the teachers and staff who support our students all year.</p>
+      </div>
+
+      <div class="progress-grid">
+        <div class="stat-box">
+          <div class="stat-icon">$</div>
+          <p class="stat-label">Total Collected</p>
+          <p class="stat-number">$____</p>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon">👥</div>
+          <p class="stat-label">Number of Contributors</p>
+          <p class="stat-number">____</p>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon">📅</div>
+          <p class="stat-label">Collection Deadline</p>
+          <p class="stat-number deadline-number">Friday, June 5</p>
+        </div>
+      </div>
+
+      <div class="last-updated">Last updated: __________</div>
+    </section>
+
+    <div class="content-grid">
+      <section class="content-card">
+        <h2>Thank You for Supporting Our Staff</h2>
+        <p>As the school year comes to an end, Bacich and Kent families are continuing the tradition of thanking our school staff with a monetary gift.</p>
+        <p>This voluntary collection is simply an end-of-year expression of gratitude for our incredibly hard-working school staff.</p>
+
+        <div class="distribution-box">
+          <h3>🎁 Contributions will be distributed to:</h3>
+          <div class="check-grid">
+            <div class="check-item"><span class="check">✓</span><span>Kent teachers</span></div>
+            <div class="check-item"><span class="check">✓</span><span>Kent office and custodial staff</span></div>
+            <div class="check-item"><span class="check">✓</span><span>Bacich enrichment and specialist teachers</span></div>
+            <div class="check-item"><span class="check">✓</span><span>Paraprofessionals / classroom aides</span></div>
+          </div>
+        </div>
+
+        <p class="note">Please note that Bacich homeroom teachers are covered by a separate collection organized by KSPTA Lead Room Parents.</p>
+      </section>
+
+      <aside class="content-card">
+        <h2>How to Contribute</h2>
+
+        <div class="payment-option">
+          <p class="payment-label">Venmo</p>
+          <p class="payment-main">@Angela-Shulman</p>
+          <p class="payment-sub">Last 4 digits: 5864</p>
+        </div>
+
+        <div class="payment-option">
+          <p class="payment-label">PayPal</p>
+          <p class="payment-main">paypal.me/angelakung</p>
+          <p class="payment-sub">or angela.kung@gmail.com</p>
+        </div>
+
+        <div class="payment-option">
+          <p class="payment-label">Cash / Check</p>
+          <p class="payment-main">Payable to Angela Shulman</p>
+          <p class="payment-sub">Drop off at the Bacich front desk</p>
+        </div>
+
+        <div class="gift-note">
+          Please indicate your contribution is for the<br />
+          <strong>“KSD Staff Gift”</strong>
+        </div>
+      </aside>
+    </div>
+
+    <section class="content-card timeline">
+      <h2>Timeline</h2>
+      <div class="timeline-grid">
+        <div class="timeline-box">
+          <p class="payment-label">Collection deadline</p>
+          <p class="timeline-main">Friday, June 5</p>
+        </div>
+        <div class="timeline-box">
+          <p class="payment-label">Gift distribution</p>
+          <p class="timeline-main">During the last week of school</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Thank you for helping us show appreciation for the people who make Bacich and Kent such a wonderful community.</p>
+      <p class="signature">Angela & Michelle</p>
+    </footer>
+  </div>
+</body>
+</html>
