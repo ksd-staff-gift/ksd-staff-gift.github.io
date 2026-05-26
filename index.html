@@ -471,22 +471,37 @@
     </div>
 
     <script>
-        function formatGoogleSheetDate(value) {
-            const numericValue = Number(value);
+function formatGoogleSheetDate(value) {
 
-            if (!Number.isNaN(numericValue)) {
-                const date = new Date((numericValue - 25569) * 86400 * 1000);
+    const numericValue = Number(value);
 
-                return date.toLocaleString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    hour: "numeric",
-                    minute: "2-digit"
-                });
+    if (!Number.isNaN(numericValue)) {
+
+        const date =
+            new Date(
+                (numericValue - 25569)
+                * 86400
+                * 1000
+            );
+
+        return date.toLocaleString(
+            "en-US",
+            {
+                timeZone: "America/Los_Angeles",
+
+                month: "short",
+                day: "numeric",
+
+                hour: "numeric",
+                minute: "2-digit",
+
+                hour12: true
             }
+        );
+    }
 
-            return value;
-        }
+    return value;
+}
 
         function setFallbackValues() {
             document.getElementById("totalCollected").textContent = "$____";
