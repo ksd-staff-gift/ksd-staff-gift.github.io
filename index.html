@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KSD All Staff End-of-Year Gift</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fafaf9;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.page-wrap {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 28px 16px 36px;
+}
+
+.card,
+.content-card {
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  border-radius: 24px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+.card {
+  overflow: hidden;
+}
+
+.hero {
+  background: #1e293b;
+  color: #ffffff;
+  text-align: center;
+  padding: 48px 28px;
+}
+
+.pill {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin: 0 0 14px;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: #f1f5f9;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 28px;
+  background: #ffffff;
+}
+
+.stat-box {
+  background: #fafaf9;
+  border: 1px solid #e7e5e4;
+  border-radius: 18px;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.stat-icon {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.stat-label,
+.payment-label {
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.stat-number {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.1;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.deadline-number {
+  font-size: clamp(23px, 3vw, 30px);
+}
+
+.last-updated {
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+  padding: 0 20px 28px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.content-card {
+  padding: 28px;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 28px;
+  line-height: 1.15;
+  color: #0f172a;
+}
+
+h3 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+p {
+  margin: 0 0 14px;
+}
+
+.distribution-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 22px 0 12px;
+}
+
+.check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+}
+
+.check-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.check {
+  color: #475569;
+  font-weight: bold;
+}
+
+.small-note {
+  font-size: 13px;
+  color: #64748b;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.organizer-box {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.organizer-label {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.contact-row {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.contact-row a {
+  color: #334155;
+  text-decoration: none;
+}
+
+.contact-row strong {
+  color: #0f172a;
+}
+
+.thankyou {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #e5e7eb;
+  font-style: italic;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.payment-option {
+  border: 1px solid #e7e5e4;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.payment-main {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  overflow-wrap: anywhere;
+}
+
+.payment-sub {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.gift-note {
+  margin-top: 18px;
+  background: #1e293b;
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.gift-note strong {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 17px;
+}
+
+.timeline {
+  margin-top: 24px;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.timeline-box {
+  background: #fafaf9;
+  border: 1px solid #e7e5e4;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.timeline-main {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+@media (max-width: 800px) {
+  .progress-grid,
+  .content-grid,
+  .timeline-grid,
+  .check-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 38px 20px;
+  }
+
+  .progress-grid,
+  .content-card {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+  <section class="card">
+    <div class="hero">
+      <div class="pill">♡ Bacich & Kent Community</div>
+      <h1>KSD All Staff End-of-Year Gift</h1>
+      <p class="subtitle">A voluntary community collection to thank the teachers and staff who support our students all year.</p>
+    </div>
+
+    <div class="progress-grid">
+      <div class="stat-box">
+        <div class="stat-icon">$</div>
+        <p class="stat-label">Total Collected</p>
+        <p class="stat-number" id="totalCollected">$____</p>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-icon">👥</div>
+        <p class="stat-label">Number of Contributors</p>
+        <p class="stat-number" id="contributors">____</p>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-icon">📅</div>
+        <p class="stat-label">Collection Deadline</p>
+        <p class="stat-number deadline-number">Friday, June 5</p>
+      </div>
+    </div>
+
+    <div class="last-updated" id="lastUpdated">Last updated: __________</div>
+  </section>
+
+  <div class="content-grid">
+
+    <section class="content-card">
+      <h2>Thank You for Supporting Our Staff</h2>
+
+      <p>As the school year comes to an end, Bacich and Kent families are continuing the tradition of thanking our school staff with a monetary gift.</p>
+
+      <p>This voluntary collection is simply an end-of-year expression of gratitude for our incredibly hard-working school staff.</p>
+
+      <div class="distribution-box">
+        <h3>🎁 Contributions will be distributed to:</h3>
+
+        <div class="check-grid">
+          <div class="check-item"><span class="check">✓</span><span>Kent teachers</span></div>
+          <div class="check-item"><span class="check">✓</span><span>Kent office and custodial staff</span></div>
+          <div class="check-item"><span class="check">✓</span><span>Bacich enrichment and specialist teachers</span></div>
+          <div class="check-item"><span class="check">✓</span><span>Paraprofessionals / classroom aides</span></div>
+        </div>
+      </div>
+
+      <p class="small-note">Bacich homeroom teachers are covered by a separate collection organized by KSPTA Lead Room Parents.</p>
+
+      <div class="organizer-box">
+        <div class="organizer-label">Questions?</div>
+
+        <div class="contact-row">
+          <strong>Angela Shulman</strong>
+          &nbsp;✉&nbsp;
+          <a href="mailto:angela.kung@gmail.com">angela.kung@gmail.com</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <strong>Michelle Rau</strong>
+          &nbsp;✉&nbsp;
+          <a href="mailto:michellesrau@yahoo.com">michellesrau@yahoo.com</a>
+        </div>
+
+        <div class="thankyou">
+          Thank you for helping us show appreciation for the people who make Bacich and Kent such a wonderful community.
+        </div>
+      </div>
+    </section>
+
+    <aside class="content-card">
+      <h2>How to Contribute</h2>
+
+      <div class="payment-option">
+        <p class="payment-label">Venmo</p>
+        <p class="payment-main">@Angela-Shulman</p>
+        <p class="payment-sub">Last 4 digits: 5864</p>
+      </div>
+
+      <div class="payment-option">
+        <p class="payment-label">PayPal</p>
+        <p class="payment-main">paypal.me/angelakung</p>
+        <p class="payment-sub">or angela.kung@gmail.com</p>
+      </div>
+
+      <div class="payment-option">
+        <p class="payment-label">Cash / Check</p>
+        <p class="payment-main">Payable to Angela Shulman</p>
+        <p class="payment-sub">Drop off at the Bacich front desk</p>
+      </div>
+
+      <div class="gift-note">
+        Please indicate your contribution is for the<br>
+        <strong>“KSD Staff Gift”</strong>
+      </div>
+    </aside>
+
+  </div>
+
+  <section class="content-card timeline">
+    <h2>Timeline</h2>
+
+    <div class="timeline-grid">
+      <div class="timeline-box">
+        <p class="payment-label">Collection deadline</p>
+        <p class="timeline-main">Friday, June 5</p>
+      </div>
+
+      <div class="timeline-box">
+        <p class="payment-label">Gift distribution</p>
+        <p class="timeline-main">During the last week of school</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function formatGoogleSheetDate(value) {
+  const num = Number(value);
+
+  if (!Number.isNaN(num)) {
+    const date = new Date((num - 25569) * 86400 * 1000);
+
+    return date.toLocaleString("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit"
+    });
+  }
+
+  return value;
+}
+
+function setFallbackValues() {
+  document.getElementById("totalCollected").textContent = "$____";
+  document.getElementById("contributors").textContent = "____";
+  document.getElementById("lastUpdated").textContent = "Last updated: __________";
+}
+
+function handleSheetData(response) {
+  try {
+    const rows = response.table.rows;
+    const data = {};
+
+    rows.forEach(row => {
+      const key = row.c[0] && row.c[0].v !== null ? String(row.c[0].v).trim() : "";
+      const value = row.c[1] && row.c[1].v !== null ? String(row.c[1].v).trim() : "";
+
+      if (key) {
+        data[key] = value;
+      }
+    });
+
+    const total =
+      data["Total Collected"] ||
+      data["Total"] ||
+      data["Amount Collected"] ||
+      "";
+
+    const contributors =
+      data["Number of Contributors"] ||
+      data["Contributors"] ||
+      "";
+
+    const updated =
+      data["Last Updated"] ||
+      data["Updated"] ||
+      "";
+
+    document.getElementById("totalCollected").textContent =
+      total ? "$" + Number(String(total).replace(/[^0-9.]/g, "")).toLocaleString() : "$____";
+
+    document.getElementById("contributors").textContent =
+      contributors || "____";
+
+    document.getElementById("lastUpdated").textContent =
+      updated ? "Last updated: " + formatGoogleSheetDate(updated) : "Last updated: __________";
+  } catch (error) {
+    setFallbackValues();
+  }
+}
+
+window.addEventListener("error", function(event) {
+  if (event.target && event.target.tagName === "SCRIPT") {
+    setFallbackValues();
+  }
+}, true);
+</script>
+
+<script src="https://docs.google.com/spreadsheets/d/1nwXFga5zRXxEiYQBp7EIHMZxsOcPm4tQfNMgW1E0fZQ/gviz/tq?tqx=responseHandler:handleSheetData&gid=0"></script>
+
+</body>
+</html>
