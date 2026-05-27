@@ -390,50 +390,25 @@
         </section>
 
         
+
+
 <section class="stats-grid">
-    <div class="stat-box" style="display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;padding:0;overflow:hidden;width:100%;">
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:18px;overflow:hidden;">
+<div style="display:grid;grid-template-columns:1fr 1fr;">
+<div style="display:flex;align-items:center;gap:14px;padding:22px;">
+<div class="stat-number" id="contributors">____</div>
+<div class="stat-label" style="margin:0;">Contributions So Far</div>
+</div>
 
-        <div style="padding:22px 16px;text-align:center;">
-            <div class="stat-icon" aria-hidden="true">
-                <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-                    <circle cx="9" cy="8" r="3" fill="currentColor"/>
-                    <circle cx="17" cy="9" r="2.5" fill="currentColor" opacity="0.75"/>
-                    <path d="M3.5 19c.8-4 3-6 5.5-6s4.7 2 5.5 6H3.5Z" fill="currentColor"/>
-                </svg>
-            </div>
-            <p class="stat-label">Contributors</p>
-            <p class="stat-number" id="contributors">____</p>
-        </div>
-
-        <div style="padding:22px 16px;text-align:center;border-left:1px solid #e5e7eb;">
-            <div class="stat-icon" aria-hidden="true">
-                <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-                    <rect x="5" y="12" width="3" height="6" rx="1" fill="currentColor"/>
-                    <rect x="10" y="9" width="3" height="9" rx="1" fill="currentColor"/>
-                    <rect x="15" y="6" width="3" height="12" rx="1" fill="currentColor"/>
-                </svg>
-            </div>
-            <p class="stat-label">Participation Rate</p>
-            <p class="stat-number" id="participationRate">____</p>
-        </div>
-
-        <div style="padding:22px 16px;text-align:center;border-left:1px solid #e5e7eb;">
-            <div class="calendar-icon">
-                <div class="calendar-icon-top">JUNE</div>
-                <div class="calendar-icon-day">5</div>
-            </div>
-            <p class="stat-label">Days To Go</p>
-            <p class="stat-number" id="daysToGo">____</p>
-        </div>
-
-    </div>
+<div style="display:flex;align-items:center;gap:14px;padding:22px;border-left:1px solid #e5e7eb;">
+<div class="stat-number" id="daysToGo">____</div>
+<div class="stat-label" style="margin:0;">Days Left to Contribute</div>
+</div>
+</div>
+<div class="last-updated" id="lastUpdated">Last updated: __________</div>
+</div>
 </section>
-
-<div class="last-updated" id="lastUpdated">
-            Last updated: __________
-        </div>
-
-        <div class="content-grid">
+<div class="content-grid">
             <section class="card">
                 <h2>Thank You for Supporting Our Staff!</h2>
 
@@ -502,13 +477,13 @@
 
                 <div class="payment-option">
                     <p class="payment-label">Venmo</p>
-                    <p class="payment-main">@Angela-Shulman</p>
+                    <p class="payment-main"><a href="https://venmo.com/u/Angela-Shulman" target="_blank" style="color:inherit;text-decoration:none;">@Angela-Shulman</a></p>
                     <p class="payment-sub">Last 4 digits: 5864</p>
                 </div>
 
                 <div class="payment-option">
                     <p class="payment-label">PayPal</p>
-                    <p class="payment-main">paypal.me/angelakung</p>
+                    <p class="payment-main"><a href="https://paypal.me/angelakung" target="_blank" style="color:inherit;">paypal.me/angelakung</a></p>
                     <p class="payment-sub">or angela.kung@gmail.com</p>
                 </div>
 
@@ -672,13 +647,13 @@
         ]);
 
         document.getElementById("contributors").textContent = contributors || "____";
-        document.getElementById("participationRate").textContent = formatPercent(participationRate);
+        
         document.getElementById("lastUpdated").textContent = updated
           ? "Last updated: " + formatGoogleSheetDate(updated)
           : "Last updated: __________";
       } catch (error) {
         document.getElementById("contributors").textContent = "____";
-        document.getElementById("participationRate").textContent = "____";
+        
         document.getElementById("lastUpdated").textContent = "Last updated: __________";
       }
     }
